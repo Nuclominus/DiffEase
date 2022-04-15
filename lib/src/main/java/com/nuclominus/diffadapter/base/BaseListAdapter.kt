@@ -77,9 +77,7 @@ abstract class BaseListAdapter<TModel, TVHolder : BaseViewHolder<TModel>> :
         return null
     }
 
-    protected open fun <TInput : TModel> onItemsUpdated(source: List<TInput>) {
-
-    }
+    protected open fun <TInput : TModel> onItemsUpdated(source: List<TInput>) {}
 
     fun updateByPayload(updateFrom: Int = 0, updateTo: Int, payload: String) {
         notifyItemRangeChanged(
