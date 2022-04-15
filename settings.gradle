@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "DiffAdapter"
-include ':app'
+include ':lib'

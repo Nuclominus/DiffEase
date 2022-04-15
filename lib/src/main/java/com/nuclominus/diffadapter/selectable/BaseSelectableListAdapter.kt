@@ -5,10 +5,10 @@ import androidx.recyclerview.selection.ItemKeyProvider
 import androidx.recyclerview.selection.SelectionPredicates
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.RecyclerView
-import se.go.frendly.presentation.adapters.base.BaseListAdapter
-import se.go.frendly.presentation.adapters.base.ListObserver
+import com.nuclominus.diffadapter.base.BaseListAdapter
+import com.nuclominus.diffadapter.base.ListObserver
 
-abstract class BaseSelectableListAdapter<TModel, TKey, TVHolder : BaseSelectableViewHolder<TModel, TKey>>(
+abstract class BaseSelectableListAdapter<TModel, TKey : Any, TVHolder : BaseSelectableViewHolder<TModel, TKey>>(
     private val listObserver: ListObserver<TModel>,
     protected val keySelector: (TModel) -> TKey
 ) : BaseListAdapter<TModel, TVHolder>(), SelectableAdapter<TKey> {
@@ -109,8 +109,6 @@ abstract class BaseSelectableListAdapter<TModel, TKey, TVHolder : BaseSelectable
     protected fun getPositionByKey(key: TKey) : Int {
         return _keyToPosition[key] ?: RecyclerView.NO_POSITION
     }
-
-
 
     companion object {
         const val TAG = "BaseSelectableListAdapter"

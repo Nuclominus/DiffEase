@@ -3,8 +3,8 @@ package com.nuclominus.diffadapter.selectable
 import android.view.MotionEvent
 import androidx.recyclerview.selection.ItemDetailsLookup
 import androidx.viewbinding.ViewBinding
-import se.go.frendly.presentation.adapters.base.BaseViewHolder
-import se.go.frendly.presentation.adapters.base.ListObserver
+import com.nuclominus.diffadapter.base.BaseViewHolder
+import com.nuclominus.diffadapter.base.ListObserver
 
 abstract class BaseSelectableViewHolder<TModel, TKey>(
     binding: ViewBinding,

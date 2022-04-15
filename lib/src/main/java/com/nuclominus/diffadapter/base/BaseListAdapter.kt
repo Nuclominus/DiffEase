@@ -1,4 +1,4 @@
-package se.go.frendly.presentation.adapters.base
+package com.nuclominus.diffadapter.base
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
