@@ -12,13 +12,9 @@ abstract class BaseViewHolder<TModel>(
 
     var model: TModel? = null
 
-    open fun onAttach() {
+    open fun onAttach() {}
 
-    }
-
-    open fun onDetach() {
-
-    }
+    open fun onDetach() {}
 
     open fun bind(current: TModel) {
         model = current

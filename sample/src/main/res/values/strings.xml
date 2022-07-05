@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">sample</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="simple_sample">Simple sample</string>
+    <string name="multi_cell_type_sample">Multi cell type sample</string>
+    <string name="title_menu">Easy Recycle Adapter</string>
+
+    <!-- Strings used for mock data -->
+    <string name="mock_name_1">Racoon</string>
+    <string name="mock_name_2">Bird</string>
+    <string name="mock_name_3">Cat</string>
+    <string name="mock_name_4">Deer</string>
+    <string name="mock_name_5">Dog</string>
+    <string name="mock_name_6">Duck</string>
+    <string name="mock_name_7">Fox</string>
+    <string name="mock_name_8">Hamster</string>
+    <string name="mock_name_9">Kangaroo</string>
+    <string name="mock_name_10">Tiger</string>
+    <string name="mock_name_11">Whale</string>
+    <string name="shuffle">Shuffle</string>
+</resources>
