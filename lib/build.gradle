@@ -1,7 +1,10 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
+
+group = 'com.nuclominus.diffadapter'
 
 android {
     compileSdk 32
@@ -53,4 +56,18 @@ dependencies {
     testImplementation "junit:junit:$junit"
     androidTestImplementation compatibility("junit")
     androidTestImplementation compatibility("espressoCore")
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.nuclominus'
+                artifactId = 'diffadapter'
+                version = 'libVersion'
+            }
+        }
+    }
 }
