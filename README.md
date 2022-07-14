@@ -50,7 +50,7 @@ Update adapter
 
 ```kotlin
 vm.data.observe(viewLifecycleOwner) { data ->
-     adapter.update(data, true)
+     adapter.update(data, true) // with detecting moves in list
 }
 ```
 
