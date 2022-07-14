@@ -11,12 +11,12 @@ ext {
 apply from: rootProject.file('publishing.gradle')
 
 android {
-    compileSdk maxSdkVersion
+    compileSdk rootProject.ext.maxSdkVersion
     namespace 'com.nuclominus.diffadapter'
 
     defaultConfig {
-        minSdk minSdkVersion
-        targetSdk maxSdkVersion
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.maxSdkVersion
 
         consumerProguardFiles 'proguard-rules.pro'
     }
