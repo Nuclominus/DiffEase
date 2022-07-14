@@ -3,6 +3,13 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+ext {
+    groupId = 'io.github.nuclominus'
+    artifactId = "recyclerdiffadapter"
+}
+
+apply from: rootProject.file('publishing.gradle')
+
 android {
     compileSdk 32
     namespace 'com.nuclominus.diffadapter'
@@ -10,25 +17,8 @@ android {
     defaultConfig {
         minSdk 21
         targetSdk 32
-        versionName libVersion
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildFeatures {
-        aidl false
-        buildConfig true
-        compose false
-        dataBinding false
-        viewBinding true
-        prefab false
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
+        consumerProguardFiles 'proguard-rules.pro'
     }
 
     compileOptions {
@@ -48,9 +38,4 @@ dependencies {
     api compatibility("material")
     api compatibility("recyclerviewSelection")
     api compatibility("recyclerview")
-
-    // Test Dependencies
-    testImplementation "junit:junit:$junit"
-    androidTestImplementation compatibility("junit")
-    androidTestImplementation compatibility("espressoCore")
 }
