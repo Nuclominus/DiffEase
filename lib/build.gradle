@@ -1,10 +1,14 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'maven-publish'
 }
 
-group = 'com.nuclominus.diffadapter'
+ext {
+    groupId = 'io.github.nuclominus'
+    artifactId = "recyclerdiffadapter"
+}
+
+apply from: rootProject.file('publishing.gradle')
 
 android {
     compileSdk 32
@@ -13,25 +17,8 @@ android {
     defaultConfig {
         minSdk 21
         targetSdk 32
-        versionName libVersion
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildFeatures {
-        aidl false
-        buildConfig true
-        compose false
-        dataBinding false
-        viewBinding true
-        prefab false
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
+        consumerProguardFiles 'proguard-rules.pro'
     }
 
     compileOptions {
@@ -51,23 +38,4 @@ dependencies {
     api compatibility("material")
     api compatibility("recyclerviewSelection")
     api compatibility("recyclerview")
-
-    // Test Dependencies
-    testImplementation "junit:junit:$junit"
-    androidTestImplementation compatibility("junit")
-    androidTestImplementation compatibility("espressoCore")
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.nuclominus'
-                artifactId = 'diffadapter'
-                version = 'libVersion'
-            }
-        }
-    }
 }

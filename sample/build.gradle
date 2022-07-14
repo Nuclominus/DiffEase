@@ -37,15 +37,6 @@ android {
         freeCompilerArgs += ['-Xcontext-receivers']
     }
 
-    buildFeatures {
-        aidl false
-        buildConfig true
-        compose false
-        dataBinding false
-        viewBinding true
-        prefab false
-    }
-
 }
 
 dependencies {
@@ -63,9 +54,5 @@ dependencies {
 
     // ViewBinding delegate
     api compatibility("viewbindingDelegate")
-    implementation project(path: ':lib')
-
-    testImplementation "junit:junit:$junit"
-    androidTestImplementation compatibility("junit")
-    androidTestImplementation compatibility("espressoCore")
+    api compatibility("recyclerdiffadapter")
 }
