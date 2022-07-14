@@ -11,11 +11,11 @@ android {
 
     defaultConfig {
         applicationId "com.nuclominus.diffadapter.sample"
-        minSdk minSdkVersion
-        targetSdk maxSdkVersion
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.maxSdkVersion
         versionCode 1
-        versionName sampleVersion
-        buildToolsVersion buildTools
+        versionName rootProject.ext.sampleVersion
+        buildToolsVersion rootProject.ext.buildTools
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
