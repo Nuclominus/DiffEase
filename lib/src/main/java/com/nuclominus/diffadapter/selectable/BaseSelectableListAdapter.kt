@@ -18,7 +18,10 @@ abstract class BaseSelectableListAdapter<TModel, TKey : Any, TVHolder : BaseSele
     private var _pendingSavedState: Bundle? = null
     private var _recyclerView: RecyclerView? = null
 
-    protected abstract fun createTracker(recyclerView: RecyclerView, adapterId: String) : SelectionTracker<TKey>
+    protected abstract fun createTracker(
+        recyclerView: RecyclerView,
+        adapterId: String
+    ): SelectionTracker<TKey>
 
     final override fun onBindViewHolder(holder: TVHolder, position: Int) {
         val item = items[position]
@@ -106,8 +109,12 @@ abstract class BaseSelectableListAdapter<TModel, TKey : Any, TVHolder : BaseSele
         return SelectionPredicates.createSelectAnything()
     }
 
-    protected fun getPositionByKey(key: TKey) : Int {
+    protected fun getPositionByKey(key: TKey): Int {
         return _keyToPosition[key] ?: RecyclerView.NO_POSITION
+    }
+
+    protected fun deselect(key: TKey) {
+        _tracker?.deselect(key)
     }
 
     companion object {
@@ -125,7 +132,8 @@ abstract class BaseSelectableListAdapter<TModel, TKey : Any, TVHolder : BaseSele
         }
     }
 
-    private inner class SelectionCallback(val tracker: SelectionTracker<TKey>) : SelectionTracker.SelectionObserver<TKey>() {
+    private inner class SelectionCallback(val tracker: SelectionTracker<TKey>) :
+        SelectionTracker.SelectionObserver<TKey>() {
         override fun onSelectionChanged() {
             onSelectionChanged(tracker.selection.size())
         }

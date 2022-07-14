@@ -6,16 +6,16 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk rootProject.ext.maxSdkVersion
     namespace 'com.nuclominus.diffadapter.sample'
 
     defaultConfig {
         applicationId "com.nuclominus.diffadapter.sample"
-        minSdk 21
-        targetSdk 32
+        minSdk minSdkVersion
+        targetSdk maxSdkVersion
         versionCode 1
         versionName sampleVersion
-        buildToolsVersion '30.0.3'
+        buildToolsVersion buildTools
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
