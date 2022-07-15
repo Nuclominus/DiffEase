@@ -5,7 +5,7 @@ A simple implementation of adapter for recycleview that implement DiffUtils and 
 
 The main idea of the library is to **completely abandon** the old implementation of updating the list via `notifyDataChanged()` and simplify the process of creating a generic and multi-type list with multiple view types.
 
-Also in a liburary implemented variation of selectable helper for adapter.
+Also in a library implemented variation of selectable helper for adapter.
 
 ## How to start:
 
