@@ -1,7 +1,8 @@
 # Recycler Diff Adapter
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.nuclominus/recyclerdiffadapter.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.github.nuclominus%22%20AND%20a:%22recyclerdiffadapter%22)
 
-A simple implementation of adapter for recycleview that implement DiffUtils and diffCallback by default
+A simple implementation of adapter for recycleview that implement DiffUtils and diffCallback by default.
+
 The main idea of the library is to **completely abandon** the old implementation of updating the list via `notifyDataChanged()` and simplify the process of creating a generic and multi-type list with multiple view types.
 
 Also in a liburary implemented variation of selectable helper for adapter.
