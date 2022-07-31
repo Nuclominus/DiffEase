@@ -33,9 +33,9 @@ android {
 }
 
 dependencies {
-    api compatibility("core")
-    api compatibility("appcompat")
-    api compatibility("material")
-    api compatibility("recyclerviewSelection")
-    api compatibility("recyclerview")
+    api libs.androidx.core
+    api libs.androidx.appcompat
+    api libs.material
+    api libs.recyclerviewSelection
+    api libs.recyclerview
 }
