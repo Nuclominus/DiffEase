@@ -55,6 +55,9 @@ vm.data.observe(viewLifecycleOwner) { data ->
 }
 ```
 
+## Future features
+- [ ] Support several selectable adapters in concatadapter
+- [ ] Support composable viewholder
 
 ## License
 
