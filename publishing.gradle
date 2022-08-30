@@ -63,24 +63,6 @@ afterEvaluate {
                     password = localProps.getProperty("ossrhPassword")
                 }
             }
-
-            maven {
-                name = "sonatypeSnapshots"
-                url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-                credentials {
-                    username = localProps.getProperty("ossrhUsername")
-                    password = localProps.getProperty("ossrhPassword")
-                }
-            }
-
-            maven {
-                name = "githubPackages"
-                url = uri("https://maven.pkg.github.com/nuclominus/recyclerDiffAdapter")
-                credentials {
-                    username = localProps.getProperty("githubUsername")
-                    password = localProps.getProperty("githubToken")
-                }
-            }
         }
     }
 
