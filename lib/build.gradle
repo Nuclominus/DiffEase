@@ -33,9 +33,9 @@ android {
 }
 
 dependencies {
-    api libs.androidx.core
-    api libs.androidx.appcompat
-    api libs.material
-    api libs.recyclerviewSelection
-    api libs.recyclerview
+    api (libs.androidx.core)
+    api (libs.androidx.appcompat)
+    api (libs.material)
+    api (libs.recyclerviewSelection)
+    api (libs.recyclerview)
 }
