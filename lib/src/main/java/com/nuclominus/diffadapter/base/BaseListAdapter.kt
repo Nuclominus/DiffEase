@@ -79,7 +79,7 @@ abstract class BaseListAdapter<TModel, TVHolder : BaseViewHolder<TModel>> :
 
     protected open fun <TInput : TModel> onItemsUpdated(source: List<TInput>) {}
 
-    fun updateByPayload(updateFrom: Int = 0, updateTo: Int, payload: String) {
+    fun updateByPayload(updateFrom: Int = 0, updateTo: Int, payload: Any) {
         notifyItemRangeChanged(
             updateFrom,
             updateTo,
@@ -87,7 +87,7 @@ abstract class BaseListAdapter<TModel, TVHolder : BaseViewHolder<TModel>> :
         )
     }
 
-    fun updateByPayload(layoutManager: LinearLayoutManager, payload: String) {
+    fun updateByPayload(layoutManager: LinearLayoutManager, payload: Any) {
         val updateFrom = layoutManager.findFirstCompletelyVisibleItemPosition()
         val updateTo = layoutManager.findLastCompletelyVisibleItemPosition()
         notifyItemRangeChanged(
