@@ -13,7 +13,7 @@ android {
         applicationId "com.nuclominus.diffadapter.sample"
         minSdk rootProject.ext.minSdkVersion
         targetSdk rootProject.ext.maxSdkVersion
-        versionCode 1
+        versionCode 2
         versionName rootProject.ext.sampleVersion
         buildToolsVersion rootProject.ext.buildTools
 
@@ -40,19 +40,18 @@ android {
 }
 
 dependencies {
-
-    api compatibility("core")
-    api compatibility("appcompat")
-    api compatibility("material")
-    api compatibility("constraintlayout")
-    api compatibility("navigationFragment")
-    api compatibility("navigationUI")
+    api (libs.androidx.core)
+    api (libs.androidx.appcompat)
+    api (libs.material)
+    api (libs.constraintlayout)
+    api (libs.navigation.fragment)
+    api (libs.navigation.fragment.ui)
+    api (libs.recyclerdiffadapter)
 
     // Hilt
-    api compatibility("hilt")
-    kapt compatibility("hiltCompiler")
+    api (libs.hilt.android)
+    kapt (libs.hilt.compiler)
 
     // ViewBinding delegate
-    api compatibility("viewbindingDelegate")
-    api compatibility("recyclerdiffadapter")
+    api (libs.viewbindingDelegate)
 }
