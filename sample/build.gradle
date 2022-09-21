@@ -13,7 +13,7 @@ android {
         applicationId "com.nuclominus.diffadapter.sample"
         minSdk rootProject.ext.minSdkVersion
         targetSdk rootProject.ext.maxSdkVersion
-        versionCode 2
+        versionCode 3
         versionName rootProject.ext.sampleVersion
         buildToolsVersion rootProject.ext.buildTools
 
@@ -34,7 +34,10 @@ android {
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8
-        freeCompilerArgs += ['-Xcontext-receivers']
+        freeCompilerArgs += [
+                '-Xcontext-receivers',
+                '-XuseK2'
+        ]
     }
 
 }
