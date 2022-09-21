@@ -73,10 +73,6 @@ abstract class BaseListAdapter<TModel, TVHolder : BaseViewHolder<TModel>> :
             ?: diffResult.dispatchUpdatesTo(this)
     }
 
-    open fun loadBinder(): BaseViewHolder<TModel>? {
-        return null
-    }
-
     protected open fun <TInput : TModel> onItemsUpdated(source: List<TInput>) {}
 
     fun updateByPayload(updateFrom: Int = 0, updateTo: Int, payload: Any) {
