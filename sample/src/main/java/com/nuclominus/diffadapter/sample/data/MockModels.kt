@@ -15,8 +15,8 @@ interface MultiMock {
 
 data class MockModel(
     override val modelId: String = UUID.randomUUID().toString(),
-    override val avatar: Int,
-    override val name: Int,
+    override val avatar: Int = 0,
+    override val name: Int = 0,
     override val date: String = Date(Random(System.currentTimeMillis()).nextLong()).toFormatDate(),
     override val isChecked: Boolean = false,
     override val viewType: Int = VIEW_TYPE_SIMPLE_CELL
