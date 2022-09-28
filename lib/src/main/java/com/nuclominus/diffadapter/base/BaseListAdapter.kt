@@ -3,7 +3,6 @@ package com.nuclominus.diffadapter.base
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListUpdateCallback
 import androidx.recyclerview.widget.RecyclerView
 
@@ -74,23 +73,5 @@ abstract class BaseListAdapter<TModel, TVHolder : BaseViewHolder<TModel>> :
     }
 
     protected open fun <TInput : TModel> onItemsUpdated(source: List<TInput>) {}
-
-    fun updateByPayload(updateFrom: Int = 0, updateTo: Int, payload: Any) {
-        notifyItemRangeChanged(
-            updateFrom,
-            updateTo,
-            payload
-        )
-    }
-
-    fun updateByPayload(layoutManager: LinearLayoutManager, payload: Any) {
-        val updateFrom = layoutManager.findFirstCompletelyVisibleItemPosition()
-        val updateTo = layoutManager.findLastCompletelyVisibleItemPosition()
-        notifyItemRangeChanged(
-            updateFrom,
-            updateTo,
-            payload
-        )
-    }
 
 }
