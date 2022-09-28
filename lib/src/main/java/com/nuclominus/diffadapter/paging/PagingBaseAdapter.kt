@@ -4,8 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.nuclominus.diffadapter.base.BaseListAdapter
 import com.nuclominus.diffadapter.base.BaseViewHolder
+import com.nuclominus.diffadapter.base.IModel
 import com.nuclominus.diffadapter.databinding.ItemLoadingLayoutBinding
-import com.nuclominus.diffadapter.error.UnSupportedViewHolderError
+import com.nuclominus.diffadapter.error.UnknownViewTypeException
 import com.nuclominus.diffadapter.helpers.AdapterConstants
 import com.nuclominus.diffadapter.helpers.viewholders.LoadingViewHolder
 import com.nuclominus.diffadapter.ext.mutableCopyOf
@@ -14,7 +15,7 @@ import com.nuclominus.diffadapter.ext.mutableCopyOf
  * Paging adapter
  * Adapter with native implementation of loading decorator
  */
-abstract class PagingBaseAdapter<TModel, TVHolder : BaseViewHolder<TModel>> :
+abstract class PagingBaseAdapter<TModel : IModel, TVHolder : BaseViewHolder<TModel>> :
     BaseListAdapter<TModel, TVHolder>() {
 
     @Suppress("UNCHECKED_CAST")
@@ -29,13 +30,17 @@ abstract class PagingBaseAdapter<TModel, TVHolder : BaseViewHolder<TModel>> :
                     LoadingViewHolder<ItemLoadingLayoutBinding, TModel>(it) as TVHolder
                 }
 
-            else -> throw UnSupportedViewHolderError(viewType)
+            else -> throw UnknownViewTypeException(viewType)
         }
     }
 
-    abstract fun withLoading(): TModel?
+    protected abstract fun withLoading(): TModel?
 
     fun showLoading() {
+        // skip adding loading element if already present end of list
+        items.find { it.viewType == AdapterConstants.BASE_VIEW_TYPE_END }
+            ?.let { return }
+
         withLoading()?.let { model ->
             val withLoading = items.mutableCopyOf()
                 .apply {

@@ -11,6 +11,7 @@ import com.nuclominus.diffadapter.sample.data.MultiMock
 import com.nuclominus.diffadapter.sample.databinding.ItemMockActionBinding
 import com.nuclominus.diffadapter.sample.databinding.ItemMockImageBinding
 import com.nuclominus.diffadapter.sample.databinding.ItemMockSimpleBinding
+import com.nuclominus.diffadapter.error.UnknownViewTypeException
 import com.nuclominus.diffadapter.sample.extensions.baseDiffCallback
 import com.nuclominus.diffadapter.sample.viewHolder.MockActionViewHolder
 import com.nuclominus.diffadapter.sample.viewHolder.MockImageViewHolder
@@ -42,7 +43,7 @@ class SampleMultiTypeAdapter(private val callback: ListObserver<MultiMock>) :
                     binding = ItemMockImageBinding.inflate(inflater, viewGroup, false),
                     callback = callback
                 )
-            else -> throw Exception("unknown view type = $viewType")
+            else -> throw UnknownViewTypeException(viewType)
         }
     }
 

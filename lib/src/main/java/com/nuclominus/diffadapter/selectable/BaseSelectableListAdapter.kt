@@ -7,6 +7,7 @@ import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.RecyclerView
 import com.nuclominus.diffadapter.base.BaseListAdapter
 import com.nuclominus.diffadapter.base.ListObserver
+import com.nuclominus.diffadapter.ext.parcelable
 
 abstract class BaseSelectableListAdapter<TModel, TKey : Any, TVHolder : BaseSelectableViewHolder<TModel, TKey>>(
     private val listObserver: ListObserver<TModel>,
@@ -47,7 +48,7 @@ abstract class BaseSelectableListAdapter<TModel, TKey : Any, TVHolder : BaseSele
             }
 
             _recyclerView?.apply {
-                layoutManager?.onRestoreInstanceState(it.getParcelable(TAG + resolveAdapterId()))
+                layoutManager?.onRestoreInstanceState(it.parcelable(TAG + resolveAdapterId()))
             }
         }
         _pendingSavedState = null
