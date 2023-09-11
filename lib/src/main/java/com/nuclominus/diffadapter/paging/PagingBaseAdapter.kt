@@ -21,7 +21,7 @@ abstract class PagingBaseAdapter<TModel : IModel, TVHolder : BaseViewHolder<TMod
     @Suppress("UNCHECKED_CAST")
     override fun inflate(inflater: LayoutInflater, viewGroup: ViewGroup?, viewType: Int): TVHolder {
         return when (viewType) {
-            AdapterConstants.BASE_VIEW_TYPE_LOADING ->
+            AdapterConstants.BaseView.BASE_VIEW_TYPE_LOADING ->
                 ItemLoadingLayoutBinding.inflate(
                     inflater,
                     viewGroup,
@@ -38,7 +38,7 @@ abstract class PagingBaseAdapter<TModel : IModel, TVHolder : BaseViewHolder<TMod
 
     fun showLoading() {
         // skip adding loading element if already present end of list
-        items.find { it.viewType == AdapterConstants.BASE_VIEW_TYPE_END }
+        items.find { it.viewType == AdapterConstants.BaseView.BASE_VIEW_TYPE_END }
             ?.let { return }
 
         withLoading()?.let { model ->
