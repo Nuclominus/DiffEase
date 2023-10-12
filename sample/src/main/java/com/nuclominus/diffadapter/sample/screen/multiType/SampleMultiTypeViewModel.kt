@@ -1,4 +1,4 @@
-package com.nuclominus.diffadapter.sample.multiType
+package com.nuclominus.diffadapter.sample.screen.multiType
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

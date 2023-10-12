@@ -1,4 +1,4 @@
-package com.nuclominus.diffadapter.sample.simple
+package com.nuclominus.diffadapter.sample.screen.simple
 
 import android.os.Bundle
 import android.view.View

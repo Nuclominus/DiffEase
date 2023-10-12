@@ -1,4 +1,4 @@
-package com.nuclominus.diffadapter.sample.simple
+package com.nuclominus.diffadapter.sample.screen.simple
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -21,13 +21,13 @@
 
     <fragment
         android:id="@+id/simpleSample"
-        android:name="com.nuclominus.diffadapter.sample.simple.SimpleListFragment"
+        android:name="com.nuclominus.diffadapter.sample.screen.simple.SimpleListFragment"
         android:label="@string/simple_sample"
         tools:layout="@layout/fragment_sample" />
 
     <fragment
         android:id="@+id/sampleMultiFragment"
-        android:name="com.nuclominus.diffadapter.sample.multiType.SampleMultiFragment"
+        android:name="com.nuclominus.diffadapter.sample.screen.multiType.SampleMultiFragment"
         android:label="SampleMultiFragment"
         tools:layout="@layout/fragment_sample"/>
 </navigation>
