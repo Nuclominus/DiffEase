@@ -114,6 +114,18 @@ abstract class BaseSelectableListAdapter<TModel, TKey : Any, TVHolder : BaseSele
         return _keyToPosition[key] ?: RecyclerView.NO_POSITION
     }
 
+    fun selectAll() {
+        _tracker?.setItemsSelected(items.map { keySelector(it) }, true)
+    }
+
+    protected fun setItemSelected(key: TKey) {
+        _tracker?.select(key)
+    }
+
+    protected fun setItemsSelected(keys: List<TKey>, isSelected: Boolean) {
+        _tracker?.setItemsSelected(keys, isSelected)
+    }
+
     protected fun deselect(key: TKey) {
         _tracker?.deselect(key)
     }

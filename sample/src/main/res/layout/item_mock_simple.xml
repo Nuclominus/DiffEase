@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp">
+    android:padding="16dp">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivAvatar"
@@ -15,6 +15,37 @@
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Image.Round"
         tools:src="@mipmap/ic_launcher" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/gSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="ivSelectBackground,ivSelectIcon" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivSelectBackground"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:alpha=".7"
+        android:background="@color/purple_200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Image.Round" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivSelectIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/baseline_check_24"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/ivAvatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Image.Round" />
+
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvName"

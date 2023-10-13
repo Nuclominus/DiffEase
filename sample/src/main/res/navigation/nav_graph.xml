@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_MainMenu_to_SampleMultiFragment"
             app:destination="@id/sampleMultiFragment" />
+        <action
+            android:id="@+id/action_MainMenu_to_SampleSelectableFragment"
+            app:destination="@id/sampleSelectableFragment" />
     </fragment>
 
     <fragment
@@ -29,5 +32,11 @@
         android:id="@+id/sampleMultiFragment"
         android:name="com.nuclominus.diffadapter.sample.screen.multiType.SampleMultiFragment"
         android:label="SampleMultiFragment"
+        tools:layout="@layout/fragment_sample"/>
+
+    <fragment
+        android:id="@+id/sampleSelectableFragment"
+        android:name="com.nuclominus.diffadapter.sample.screen.selectable.SelectableListFragment"
+        android:label="SelectableListFragment"
         tools:layout="@layout/fragment_sample"/>
 </navigation>
