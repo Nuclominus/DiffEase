@@ -13,8 +13,5 @@
         <item
             android:id="@+id/action_select_single"
             android:title="@string/select_single" />
-        <item
-            android:id="@+id/action_select_ratio"
-            android:title="@string/select_ratio" />
     </group>
 </menu>

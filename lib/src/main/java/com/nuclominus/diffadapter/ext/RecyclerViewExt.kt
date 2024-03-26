@@ -75,3 +75,20 @@ fun RecyclerView.canScrollHorizontally(): Boolean {
 fun RecyclerView.canScrollVertically(): Boolean {
     return canScrollVertically(1) || canScrollVertically(-1)
 }
+
+/**
+ * This method use reflection to access a private member of class
+ */
+private fun <T : Any> T.getPrivateProperty(name: String): Any? {
+    return javaClass.getDeclaredField(name).let { field ->
+        field.isAccessible = true
+        return@let field.get(this)
+    }
+}
+
+/**
+ * Clear stack of touch listeners in recyclerview
+ */
+internal fun RecyclerView.removeAllTouchListeners() {
+    (getPrivateProperty("mOnItemTouchListeners") as? ArrayList<*>)?.clear()
+}

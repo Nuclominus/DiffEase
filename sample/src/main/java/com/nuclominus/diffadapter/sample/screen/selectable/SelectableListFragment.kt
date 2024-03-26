@@ -12,13 +12,15 @@ import com.nuclominus.diffadapter.sample.data.MultiMock
 import com.nuclominus.diffadapter.sample.databinding.FragmentSampleBinding
 import com.nuclominus.diffadapter.sample.extensions.addMenuProvider
 import com.nuclominus.diffadapter.sample.extensions.showSnackBar
+import com.nuclominus.diffadapter.sample.screen.core.MockViewModel
+import com.nuclominus.diffadapter.sample.ext.showNotCompletedMessage
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SelectableListFragment : Fragment(R.layout.fragment_sample) {
 
     private val viewBinding by viewBinding(FragmentSampleBinding::bind)
-    private val vm: SelectableListViewModel by viewModels()
+    private val vm: MockViewModel by viewModels()
 
     private val adapter by lazy {
         SelectableMockAdapter(
@@ -49,6 +51,9 @@ class SelectableListFragment : Fragment(R.layout.fragment_sample) {
     private fun initViews() {
         with(viewBinding) {
             listWidget.recyclerView.adapter = adapter
+            btnShuffle.setOnClickListener {
+                vm.shuffle()
+            }
         }
         addMenuProvider(
             onSelected = ::onMenuItemSelected,
@@ -57,6 +62,7 @@ class SelectableListFragment : Fragment(R.layout.fragment_sample) {
     }
 
     private fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        val view = viewBinding.root
         return when (menuItem.itemId) {
             R.id.action_select_all -> {
                 adapter.selectAll()
@@ -69,20 +75,16 @@ class SelectableListFragment : Fragment(R.layout.fragment_sample) {
             }
 
             R.id.action_select_any -> {
-                adapter.selectAnyMode()
+                showNotCompletedMessage(view)
+                adapter.selectAnyMode() //TODO Improved runtime update of selection tracker
                 true
             }
 
             R.id.action_select_single -> {
-                adapter.selectSingleMode()
+                showNotCompletedMessage(view)
+                adapter.selectSingleMode() //TODO Improved runtime update of selection tracker
                 true
             }
-
-            R.id.action_select_ratio -> {
-                adapter.selectRatioMode()
-                true
-            }
-
 
             else -> false
         }

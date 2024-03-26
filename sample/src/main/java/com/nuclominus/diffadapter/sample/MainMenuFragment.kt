@@ -28,6 +28,11 @@ class MainMenuFragment : Fragment(R.layout.fragment_main_menu) {
             findNavController().navigate(R.id.action_MainMenu_to_SampleSelectableFragment)
             requireContext().resources
         }
+
+        viewBinding.btnMultiSelectSample.setOnClickListener {
+            findNavController().navigate(R.id.action_MenuFragment_to_sampleMultiSelectableFragment)
+            requireContext().resources
+        }
     }
 
 }

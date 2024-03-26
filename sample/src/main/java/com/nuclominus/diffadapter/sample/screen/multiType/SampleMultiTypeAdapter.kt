@@ -17,7 +17,7 @@ import com.nuclominus.diffadapter.sample.viewHolder.MockActionViewHolder
 import com.nuclominus.diffadapter.sample.viewHolder.MockImageViewHolder
 import com.nuclominus.diffadapter.sample.viewHolder.MockViewHolder
 
-class SampleMultiTypeAdapter(private val callback: ListObserver<MultiMock>) :
+class SampleMultiTypeAdapter(private val callback: ListObserver<MultiMock>? = null) :
     BaseListAdapter<MultiMock, BaseViewHolder<MultiMock>>() {
 
     override fun getItemViewType(position: Int): Int = items[position].viewType

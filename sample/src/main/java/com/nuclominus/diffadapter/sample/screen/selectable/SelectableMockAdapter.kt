@@ -3,6 +3,7 @@ package com.nuclominus.diffadapter.sample.screen.selectable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.selection.SelectionPredicates
+import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.selection.SelectionTracker.SelectionPredicate
 import com.nuclominus.diffadapter.base.DiffResultCallback
 import com.nuclominus.diffadapter.base.ListObserver
@@ -45,25 +46,12 @@ class SelectableMockAdapter(
     ): DiffResultCallback<MultiMock, TInput> = baseDiffCallback(oldItems, newItems)
 
     fun selectAnyMode() {
-        clearSelection()
         selectionPredicates = SelectionPredicates.createSelectAnything()
+        overrideTracker()
     }
 
     fun selectSingleMode() {
-        clearSelection()
         selectionPredicates = SelectionPredicates.createSelectSingleAnything()
+        overrideTracker()
     }
-
-    fun selectRatioMode() {
-        clearSelection()
-        selectionPredicates = object : SelectionPredicate<String>() {
-            override fun canSetStateForKey(key: String, nextState: Boolean): Boolean {
-                return getSelection().firstOrNull()?.let { it != key } ?: true
-            }
-
-            override fun canSetStateAtPosition(position: Int, nextState: Boolean) = true
-            override fun canSelectMultiple() = false
-        }
-    }
-
 }

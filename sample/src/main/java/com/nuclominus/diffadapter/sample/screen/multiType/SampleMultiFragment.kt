@@ -29,7 +29,7 @@ class SampleMultiFragment : Fragment(R.layout.fragment_sample) {
             }
 
             override fun onActionClicked(item: MultiMock) {
-                vm.selectAndUpdateItem(item)
+                // Do something with action
             }
         })
     }

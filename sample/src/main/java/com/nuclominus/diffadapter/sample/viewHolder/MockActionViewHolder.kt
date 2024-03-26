@@ -7,7 +7,7 @@ import com.nuclominus.diffadapter.sample.databinding.ItemMockActionBinding
 
 class MockActionViewHolder(
     private val binding: ItemMockActionBinding,
-    override val callback: ListObserver<MultiMock>
+    override val callback: ListObserver<MultiMock>?
 ) : BaseViewHolder<MultiMock>(binding, callback) {
 
     override fun bind(current: MultiMock) {
@@ -15,7 +15,7 @@ class MockActionViewHolder(
 
         with(binding) {
             root.setOnClickListener {
-                callback.onItemClicked(current)
+                callback?.onItemClicked(current)
             }
             ivAvatar.setImageResource(current.avatar)
             tvName.setText(current.name)
@@ -23,7 +23,7 @@ class MockActionViewHolder(
             cbLike.apply {
                 isChecked = current.isChecked
                 setOnClickListener {
-                    callback.onActionClicked(current)
+                    callback?.onActionClicked(current)
                 }
             }
         }
