@@ -20,9 +20,15 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        viewBinding true
+        dataBinding false
+        compose false
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -56,7 +62,6 @@ dependencies {
     api(libs.androidx.core)
     api(libs.androidx.appcompat)
     api(libs.material)
-    api(libs.constraintlayout)
     api(libs.navigation.fragment)
     api(libs.navigation.fragment.ui)
     api(libs.diffease)
