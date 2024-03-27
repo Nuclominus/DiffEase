@@ -7,10 +7,10 @@ plugins {
 
 android {
     compileSdk rootProject.ext.maxSdkVersion
-    namespace 'com.nuclominus.diffadapter.sample'
+    namespace 'com.nuclominus.diffease.sample'
 
     defaultConfig {
-        applicationId "com.nuclominus.diffadapter.sample"
+        applicationId "com.nuclominus.diffease.sample"
         minSdk rootProject.ext.minSdkVersion
         targetSdk rootProject.ext.maxSdkVersion
         versionCode 3

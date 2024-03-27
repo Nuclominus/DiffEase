@@ -1,5 +1,7 @@
-# Recycler Diff Adapter
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.nuclominus/recyclerdiffadapter.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.github.nuclominus%22%20AND%20a:%22recyclerdiffadapter%22)
+# DiffEase
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/Nuclominus/DiffEase?tab=Apache-2.0-1-ov-file)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.nuclominus/diffease.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.github.nuclominus%22%20AND%20a:%diffease%22)
 
 A simple implementation of adapter for recycleview that implement DiffUtils and diffCallback by default.
 
@@ -11,12 +13,12 @@ Also in a library implemented variation of selectable helper for adapter.
 
 Gradle Groovy DSL:
 ```groovy
-implementation 'io.github.nuclominus:recyclerdiffadapter:$recycleDiffVersion'
+implementation 'io.github.nuclominus:diffease:diffeaseVersion'
 ```
 
 Gradle Kotlin DSL:
 ```kotlin
-implementation("io.github.nuclominus:recyclerdiffadapter:$recycleDiffVersion")
+implementation("io.github.nuclominus:diffease:$diffeaseVersion")
 ```
 
 ## Usage:
@@ -30,7 +32,7 @@ Using in three steps:
  * Implement adapter with specifying the data type and the supported data type. 
  * To support multiple cell types, we specify not an explicit viewholder type, but a generic one. 
  */
-class SimpleDiffAdapter() : BaseListAdapter<MultiMock, BaseViewHolder<MultiMock>>() {
+class SimpleDiffAdapter() : DiffEaseAdapter<MultiMock, BaseViewHolder<MultiMock>>() {
     ...
 }
 ```
@@ -57,22 +59,3 @@ vm.data.observe(viewLifecycleOwner) { data ->
 
 ## Future features
 - [ ] Support several selectable adapters in concatadapter
-- [ ] Support composable viewholder
-
-## License
-
-```
-Copyright 2022 Roman Kosko
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-   
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```

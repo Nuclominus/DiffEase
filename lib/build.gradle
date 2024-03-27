@@ -5,14 +5,14 @@ plugins {
 
 ext {
     groupId = 'io.github.nuclominus'
-    artifactId = "recyclerdiffadapter"
+    artifactId = "diffease"
 }
 
 apply from: rootProject.file('publishing.gradle')
 
 android {
     compileSdk rootProject.ext.maxSdkVersion
-    namespace 'com.nuclominus.diffadapter'
+    namespace 'com.nuclominus.diffease'
 
     defaultConfig {
         minSdk rootProject.ext.minSdkVersion
