@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/MenuFragment"
-        android:name="com.nuclominus.diffadapter.sample.MainMenuFragment"
+        android:name="com.nuclominus.diffease.sample.MainMenuFragment"
         android:label="@string/title_menu"
         tools:layout="@layout/fragment_main_menu">
 
@@ -27,25 +27,25 @@
 
     <fragment
         android:id="@+id/simpleSample"
-        android:name="com.nuclominus.diffadapter.sample.screen.simple.SimpleListFragment"
+        android:name="com.nuclominus.diffease.sample.screen.simple.SimpleListFragment"
         android:label="@string/simple_sample"
         tools:layout="@layout/fragment_sample" />
 
     <fragment
         android:id="@+id/sampleMultiFragment"
-        android:name="com.nuclominus.diffadapter.sample.screen.multiType.SampleMultiFragment"
-        android:label="SampleMultiViewType"
+        android:name="com.nuclominus.diffease.sample.screen.multiType.SampleMultiFragment"
+        android:label="@string/multi_cell_type_sample"
         tools:layout="@layout/fragment_sample" />
 
     <fragment
         android:id="@+id/sampleSelectableFragment"
-        android:name="com.nuclominus.diffadapter.sample.screen.selectable.SelectableListFragment"
-        android:label="SelectableList"
+        android:name="com.nuclominus.diffease.sample.screen.selectable.SelectableListFragment"
+        android:label="@string/select_cell_type_sample"
         tools:layout="@layout/fragment_sample" />
 
     <fragment
         android:id="@+id/sampleMultiSelectableFragment"
-        android:name="com.nuclominus.diffadapter.sample.screen.multiselectable.SampleMultiSelectableFragment"
-        android:label="SampleMultiSelectable"
+        android:name="com.nuclominus.diffease.sample.screen.multiselectable.SampleMultiSelectableFragment"
+        android:label="@string/multi_select_cell_type_sample"
         tools:layout="@layout/fragment_sample" />
 </navigation>
