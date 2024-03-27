@@ -9,6 +9,8 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="simple_sample">Simple sample</string>
     <string name="multi_cell_type_sample">Multi cell type sample</string>
+    <string name="select_cell_type_sample">Selectable sample</string>
+    <string name="multi_select_cell_type_sample">Multi Selectable sample</string>
     <string name="title_menu">Easy Recycle Adapter</string>
 
     <!-- Strings used for mock data -->
@@ -24,4 +26,9 @@
     <string name="mock_name_10">Tiger</string>
     <string name="mock_name_11">Whale</string>
     <string name="shuffle">Shuffle</string>
+    <string name="select_all">Select All</string>
+    <string name="unselect_all">Unselect All</string>
+    <string name="select_any">Select Any Mode </string>
+    <string name="select_single">Select Single Mode</string>
+    <string name="select_ratio">Select Ratio Mode</string>
 </resources>

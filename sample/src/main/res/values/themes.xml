@@ -12,6 +12,12 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="textAppearanceLargePopupMenu">@style/TextAppearance.App.BodyLarge</item>
+        <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.App.BodyLarge</item>
+    </style>
+
+    <style name="TextAppearance.App.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Theme.DiffAdapter.NoActionBar">

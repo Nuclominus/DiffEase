@@ -1,4 +1,4 @@
-package com.nuclominus.diffadapter.sample.multiType
+package com.nuclominus.diffadapter.sample.screen.multiType
 
 import android.os.Bundle
 import android.view.View
@@ -29,7 +29,7 @@ class SampleMultiFragment : Fragment(R.layout.fragment_sample) {
             }
 
             override fun onActionClicked(item: MultiMock) {
-                vm.selectAndUpdateItem(item)
+                // Do something with action
             }
         })
     }

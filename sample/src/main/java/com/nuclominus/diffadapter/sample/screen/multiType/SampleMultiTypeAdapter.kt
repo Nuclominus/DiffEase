@@ -1,4 +1,4 @@
-package com.nuclominus.diffadapter.sample.multiType
+package com.nuclominus.diffadapter.sample.screen.multiType
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -17,7 +17,7 @@ import com.nuclominus.diffadapter.sample.viewHolder.MockActionViewHolder
 import com.nuclominus.diffadapter.sample.viewHolder.MockImageViewHolder
 import com.nuclominus.diffadapter.sample.viewHolder.MockViewHolder
 
-class SampleMultiTypeAdapter(private val callback: ListObserver<MultiMock>) :
+class SampleMultiTypeAdapter(private val callback: ListObserver<MultiMock>? = null) :
     BaseListAdapter<MultiMock, BaseViewHolder<MultiMock>>() {
 
     override fun getItemViewType(position: Int): Int = items[position].viewType

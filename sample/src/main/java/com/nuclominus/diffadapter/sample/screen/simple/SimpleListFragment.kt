@@ -1,4 +1,4 @@
-package com.nuclominus.diffadapter.sample.simple
+package com.nuclominus.diffadapter.sample.screen.simple
 
 import android.os.Bundle
 import android.view.View
@@ -10,13 +10,14 @@ import com.nuclominus.diffadapter.sample.R
 import com.nuclominus.diffadapter.sample.data.MultiMock
 import com.nuclominus.diffadapter.sample.databinding.FragmentSampleBinding
 import com.nuclominus.diffadapter.sample.extensions.showSnackBar
+import com.nuclominus.diffadapter.sample.screen.core.MockViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SimpleListFragment : Fragment(R.layout.fragment_sample) {
 
     private val viewBinding by viewBinding(FragmentSampleBinding::bind)
-    private val vm: SimpleListViewModel by viewModels()
+    private val vm: MockViewModel by viewModels()
 
     private val adapter by lazy {
         SimpleDiffAdapter(object : ListObserver<MultiMock>() {

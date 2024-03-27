@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.nuclominus.diffadapter.base.BaseListAdapter
 import com.nuclominus.diffadapter.base.ListObserver
 import com.nuclominus.diffadapter.ext.parcelable
+import com.nuclominus.diffadapter.ext.removeAllTouchListeners
 
 abstract class BaseSelectableListAdapter<TModel, TKey : Any, TVHolder : BaseSelectableViewHolder<TModel, TKey>>(
     private val listObserver: ListObserver<TModel>,
@@ -19,10 +20,35 @@ abstract class BaseSelectableListAdapter<TModel, TKey : Any, TVHolder : BaseSele
     private var _pendingSavedState: Bundle? = null
     private var _recyclerView: RecyclerView? = null
 
-    protected abstract fun createTracker(
+    protected abstract fun createTrackerBuilder(
         recyclerView: RecyclerView,
-        adapterId: String
-    ): SelectionTracker<TKey>
+        adapterId: String,
+    ): SelectionTracker.Builder<TKey>
+
+    private fun createTracker(
+        recyclerView: RecyclerView,
+        adapterId: String,
+    ): SelectionTracker<TKey> {
+        return createTrackerBuilder(recyclerView, adapterId)
+            .withSelectionPredicate(selectionPredicate())
+            .build()
+    }
+
+
+    /**
+     * Experimental method
+     *
+     * Method recreate selection tracker with updated/or not [selectionPredicate]
+     * WARNING: Using this method removing all registered recyclerview touch listeners
+     */
+    fun overrideTracker() {
+        val recyclerView = _recyclerView ?: return
+        clearSelection() // clear tracker before override
+        recyclerView.removeAllTouchListeners()
+        _tracker = createTracker(recyclerView, recyclerView.resolveAdapterId()).apply {
+            addObserver(SelectionCallback(this))
+        }
+    }
 
     final override fun onBindViewHolder(holder: TVHolder, position: Int) {
         val item = items[position]
@@ -114,6 +140,18 @@ abstract class BaseSelectableListAdapter<TModel, TKey : Any, TVHolder : BaseSele
         return _keyToPosition[key] ?: RecyclerView.NO_POSITION
     }
 
+    fun selectAll() {
+        _tracker?.setItemsSelected(items.map { keySelector(it) }, true)
+    }
+
+    protected fun setItemSelected(key: TKey) {
+        _tracker?.select(key)
+    }
+
+    protected fun setItemsSelected(keys: List<TKey>, isSelected: Boolean) {
+        _tracker?.setItemsSelected(keys, isSelected)
+    }
+
     protected fun deselect(key: TKey) {
         _tracker?.deselect(key)
     }
@@ -125,7 +163,8 @@ abstract class BaseSelectableListAdapter<TModel, TKey : Any, TVHolder : BaseSele
     protected inner class SelectableKeyProvider : ItemKeyProvider<TKey>(SCOPE_CACHED) {
 
         override fun getKey(position: Int): TKey? {
-            return items.takeIf { it.size > position }?.let { keySelector(it[position]) }
+            val key = items.takeIf { it.size > position }?.let { keySelector(it[position]) }
+            return key
         }
 
         override fun getPosition(key: TKey): Int {

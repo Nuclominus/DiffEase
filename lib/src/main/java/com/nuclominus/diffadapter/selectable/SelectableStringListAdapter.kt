@@ -11,14 +11,16 @@ abstract class SelectableStringListAdapter<TModel, TVHolder : BaseSelectableView
 ) : BaseSelectableListAdapter<TModel, String, TVHolder>(listObserver, keySelector),
     SelectableAdapter<String> {
 
-    override fun createTracker(recyclerView: RecyclerView, adapterId: String): SelectionTracker<String> {
+    override fun createTrackerBuilder(
+        recyclerView: RecyclerView,
+        adapterId: String
+    ): SelectionTracker.Builder<String> {
         return SelectionTracker.Builder(
             "$adapterId.selection",
             recyclerView,
             SelectableKeyProvider(),
             SelectableItemDetailsLookup<String>(recyclerView),
             StorageStrategy.createStringStorage()
-        ).withSelectionPredicate(selectionPredicate())
-            .build()
+        )
     }
 }

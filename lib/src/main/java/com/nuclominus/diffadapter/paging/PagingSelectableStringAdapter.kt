@@ -24,18 +24,17 @@ abstract class PagingSelectableStringAdapter<TModel : IModel, TVHolder : BaseSel
 ) : BaseSelectableListAdapter<TModel, String, TVHolder>(listObserver, keySelector),
     SelectableAdapter<String> {
 
-    override fun createTracker(
+    override fun createTrackerBuilder(
         recyclerView: RecyclerView,
         adapterId: String
-    ): SelectionTracker<String> {
+    ): SelectionTracker.Builder<String> {
         return SelectionTracker.Builder(
             "$adapterId.selection",
             recyclerView,
             SelectableKeyProvider(),
             SelectableItemDetailsLookup<String>(recyclerView),
             StorageStrategy.createStringStorage()
-        ).withSelectionPredicate(selectionPredicate())
-            .build()
+        )
     }
 
     override fun selectionPredicate(): SelectionTracker.SelectionPredicate<String> {

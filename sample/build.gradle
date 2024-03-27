@@ -1,8 +1,8 @@
 plugins {
     id "com.android.application"
-    id "org.jetbrains.kotlin.android"
-    id "kotlin-kapt"
     id "dagger.hilt.android.plugin"
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.google.ksp)
 }
 
 android {
@@ -36,7 +36,6 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8
         freeCompilerArgs += [
                 '-Xcontext-receivers',
-                '-XuseK2'
         ]
     }
 
@@ -60,11 +59,12 @@ dependencies {
     api(libs.constraintlayout)
     api(libs.navigation.fragment)
     api(libs.navigation.fragment.ui)
-    api(libs.recyclerdiffadapter)
+//    api(libs.recyclerdiffadapter)
+    api(project(":lib"))
 
     // Hilt
     api(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     // ViewBinding delegate
     api(libs.viewbindingDelegate)

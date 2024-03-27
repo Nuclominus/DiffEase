@@ -6,6 +6,7 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.nuclominus.diffadapter.sample.databinding.FragmentMainMenuBinding
+import com.nuclominus.diffadapter.sample.ext.showNotCompletedMessage
 
 class MainMenuFragment : Fragment(R.layout.fragment_main_menu) {
 
@@ -22,6 +23,17 @@ class MainMenuFragment : Fragment(R.layout.fragment_main_menu) {
         viewBinding.btnMultiSample.setOnClickListener {
             findNavController().navigate(R.id.action_MainMenu_to_SampleMultiFragment)
             requireContext().resources
+        }
+
+        viewBinding.btnSelectSample.setOnClickListener {
+            findNavController().navigate(R.id.action_MainMenu_to_SampleSelectableFragment)
+            requireContext().resources
+        }
+
+        viewBinding.btnMultiSelectSample.setOnClickListener {
+            showNotCompletedMessage(view)
+//            findNavController().navigate(R.id.action_MenuFragment_to_sampleMultiSelectableFragment)
+//            requireContext().resources
         }
     }
 

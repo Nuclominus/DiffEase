@@ -1,4 +1,4 @@
-package com.nuclominus.diffadapter.sample.simple
+package com.nuclominus.diffadapter.sample.screen.selectable
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,7 +10,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class SimpleListViewModel @Inject constructor(
+class SelectableListViewModel @Inject constructor(
     resources: ResourceProvider
 ) : ViewModel() {
 
@@ -26,7 +26,4 @@ class SimpleListViewModel @Inject constructor(
         }
     }
 
-    fun shuffle() {
-        _data.postValue(mockData.shuffled())
-    }
 }
