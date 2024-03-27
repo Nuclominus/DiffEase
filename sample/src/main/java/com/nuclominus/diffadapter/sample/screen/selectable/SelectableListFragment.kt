@@ -62,7 +62,6 @@ class SelectableListFragment : Fragment(R.layout.fragment_sample) {
     }
 
     private fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        val view = viewBinding.root
         return when (menuItem.itemId) {
             R.id.action_select_all -> {
                 adapter.selectAll()
@@ -75,14 +74,12 @@ class SelectableListFragment : Fragment(R.layout.fragment_sample) {
             }
 
             R.id.action_select_any -> {
-                showNotCompletedMessage(view)
-                adapter.selectAnyMode() //TODO Improved runtime update of selection tracker
+                adapter.selectAnyMode()
                 true
             }
 
             R.id.action_select_single -> {
-                showNotCompletedMessage(view)
-                adapter.selectSingleMode() //TODO Improved runtime update of selection tracker
+                adapter.selectSingleMode()
                 true
             }
 
