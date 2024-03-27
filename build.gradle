@@ -14,14 +14,15 @@ buildscript {
     }
 
     dependencies {
-        classpath (libs.android.gradle.plugin)
-        classpath (libs.hilt.gradle.plugin)
+        classpath(libs.android.gradle.plugin)
+        classpath(libs.hilt.gradle.plugin)
     }
 
 }
 
 plugins {
-    alias (libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.google.ksp) apply false
     id "maven-publish"
 }
 
