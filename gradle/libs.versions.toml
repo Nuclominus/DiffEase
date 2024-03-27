@@ -12,8 +12,8 @@ hilt = "2.48.1"
 viewbindingDelegate = "1.5.6"
 junit = "1.1.3"
 espressoCore = "3.4.0"
-diffAdapter = "1.0.18"
-gradleplugin = "8.1.4"
+diffease = "1.2.0"
+gradleplugin = "8.3.1"
 ksp = "1.9.23-1.0.19"
 
 [libraries]
@@ -30,7 +30,7 @@ hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 hilt-gradle-plugin = { group = "com.google.dagger", name = "hilt-android-gradle-plugin", version.ref = "hilt" }
 viewbindingDelegate = { group = "com.github.kirich1409", name = "viewbindingpropertydelegate-noreflection", version.ref = "viewbindingDelegate" }
-recyclerdiffadapter = { group = "io.github.nuclominus", name = "recyclerdiffadapter", version.ref = "diffAdapter" }
+diffease = { group = "io.github.nuclominus", name = "diffease", version.ref = "diffease" }
 
 [plugins]
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

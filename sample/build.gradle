@@ -59,8 +59,7 @@ dependencies {
     api(libs.constraintlayout)
     api(libs.navigation.fragment)
     api(libs.navigation.fragment.ui)
-//    api(libs.recyclerdiffadapter)
-    api(project(":lib"))
+    api(libs.diffease)
 
     // Hilt
     api(libs.hilt.android)
