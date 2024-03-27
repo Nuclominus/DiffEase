@@ -1,7 +1,7 @@
 # DiffEase
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/Nuclominus/DiffEase?tab=Apache-2.0-1-ov-file)
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.nuclominus/diffease.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.github.nuclominus%22%20AND%20a:%diffease%22)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.nuclominus/diffease.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.nuclominus/diffease)
 
 A simple implementation of adapter for recycleview that implement DiffUtils and diffCallback by default.
 
@@ -13,7 +13,7 @@ Also in a library implemented variation of selectable helper for adapter.
 
 Gradle Groovy DSL:
 ```groovy
-implementation 'io.github.nuclominus:diffease:diffeaseVersion'
+implementation 'io.github.nuclominus:diffease:$diffeaseVersion'
 ```
 
 Gradle Kotlin DSL:
