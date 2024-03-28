@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:menuCategory="system">
+        <item
+            android:id="@+id/action_select_all"
+            android:title="@string/select_all" />
+        <item
+            android:id="@+id/action_unselect_all"
+            android:title="@string/unselect_all" />
+        <item
+            android:id="@+id/action_select_any"
+            android:title="@string/select_any" />
+        <item
+            android:id="@+id/action_select_single"
+            android:title="@string/select_single" />
+    </group>
+</menu>

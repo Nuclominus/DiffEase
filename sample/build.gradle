@@ -1,16 +1,16 @@
 plugins {
     id "com.android.application"
-    id "org.jetbrains.kotlin.android"
-    id "kotlin-kapt"
     id "dagger.hilt.android.plugin"
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.google.ksp)
 }
 
 android {
     compileSdk rootProject.ext.maxSdkVersion
-    namespace 'com.nuclominus.diffadapter.sample'
+    namespace 'com.nuclominus.diffease.sample'
 
     defaultConfig {
-        applicationId "com.nuclominus.diffadapter.sample"
+        applicationId "com.nuclominus.diffease.sample"
         minSdk rootProject.ext.minSdkVersion
         targetSdk rootProject.ext.maxSdkVersion
         versionCode 3
@@ -20,9 +20,15 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        viewBinding true
+        dataBinding false
+        compose false
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -36,7 +42,6 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8
         freeCompilerArgs += [
                 '-Xcontext-receivers',
-                '-XuseK2'
         ]
     }
 
@@ -57,14 +62,13 @@ dependencies {
     api(libs.androidx.core)
     api(libs.androidx.appcompat)
     api(libs.material)
-    api(libs.constraintlayout)
     api(libs.navigation.fragment)
     api(libs.navigation.fragment.ui)
-    api(libs.recyclerdiffadapter)
+    api(libs.diffease)
 
     // Hilt
     api(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     // ViewBinding delegate
     api(libs.viewbindingDelegate)

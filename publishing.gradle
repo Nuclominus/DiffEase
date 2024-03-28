@@ -3,7 +3,7 @@ apply plugin: 'signing'
 
 tasks.register("sourceJar", Jar) {
     from android.sourceSets.main.java.srcDirs
-    archiveClassifier.set('sources')
+    archiveClassifier.set('sourcesJar')
 }
 
 Properties localProps = new Properties()
@@ -28,9 +28,9 @@ afterEvaluate {
                 version = rootProject.ext.libVersion
 
                 pom {
-                    name = 'Diff Adapter'
+                    name = 'DiffEase'
                     description = 'A simple description and use of an adapter based on DiffUtils'
-                    url = 'https://github.com/Nuclominus/recyclerDiffAdapter'
+                    url = 'https://github.com/Nuclominus/DiffEase'
 
                     licenses {
                         license {
@@ -48,7 +48,7 @@ afterEvaluate {
                     }
 
                     scm {
-                        url = 'https://github.com/Nuclominus/recyclerDiffAdapter'
+                        url = 'https://github.com/Nuclominus/DiffEase'
                     }
                 }
             }

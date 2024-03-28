@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/MenuFragment"
-        android:name="com.nuclominus.diffadapter.sample.MainMenuFragment"
+        android:name="com.nuclominus.diffease.sample.MainMenuFragment"
         android:label="@string/title_menu"
         tools:layout="@layout/fragment_main_menu">
 
@@ -17,17 +17,35 @@
         <action
             android:id="@+id/action_MainMenu_to_SampleMultiFragment"
             app:destination="@id/sampleMultiFragment" />
+        <action
+            android:id="@+id/action_MainMenu_to_SampleSelectableFragment"
+            app:destination="@id/sampleSelectableFragment" />
+        <action
+            android:id="@+id/action_MenuFragment_to_sampleMultiSelectableFragment"
+            app:destination="@id/sampleMultiSelectableFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/simpleSample"
-        android:name="com.nuclominus.diffadapter.sample.simple.SimpleListFragment"
+        android:name="com.nuclominus.diffease.sample.screen.simple.SimpleListFragment"
         android:label="@string/simple_sample"
         tools:layout="@layout/fragment_sample" />
 
     <fragment
         android:id="@+id/sampleMultiFragment"
-        android:name="com.nuclominus.diffadapter.sample.multiType.SampleMultiFragment"
-        android:label="SampleMultiFragment"
-        tools:layout="@layout/fragment_sample"/>
+        android:name="com.nuclominus.diffease.sample.screen.multiType.SampleMultiFragment"
+        android:label="@string/multi_cell_type_sample"
+        tools:layout="@layout/fragment_sample" />
+
+    <fragment
+        android:id="@+id/sampleSelectableFragment"
+        android:name="com.nuclominus.diffease.sample.screen.selectable.SelectableListFragment"
+        android:label="@string/select_cell_type_sample"
+        tools:layout="@layout/fragment_sample" />
+
+    <fragment
+        android:id="@+id/sampleMultiSelectableFragment"
+        android:name="com.nuclominus.diffease.sample.screen.multiselectable.SampleMultiSelectableFragment"
+        android:label="@string/multi_select_cell_type_sample"
+        tools:layout="@layout/fragment_sample" />
 </navigation>
