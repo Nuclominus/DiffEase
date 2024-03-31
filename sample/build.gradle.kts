@@ -1,48 +1,50 @@
 plugins {
-    id "com.android.application"
-    id "dagger.hilt.android.plugin"
+    id("com.android.application")
+    id("dagger.hilt.android.plugin")
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.ksp)
 }
 
 android {
-    compileSdk rootProject.ext.maxSdkVersion
-    namespace 'com.nuclominus.diffease.sample'
+    compileSdk = rootProject.extra["maxSdkVersion"] as Int
+    namespace = "com.nuclominus.diffease.sample"
 
     defaultConfig {
-        applicationId "com.nuclominus.diffease.sample"
-        minSdk rootProject.ext.minSdkVersion
-        targetSdk rootProject.ext.maxSdkVersion
-        versionCode 3
-        versionName rootProject.ext.sampleVersion
-        buildToolsVersion = rootProject.ext.buildTools
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        applicationId = "com.nuclominus.diffease.sample"
+        minSdk = rootProject.extra["minSdkVersion"] as Int
+        targetSdk = rootProject.extra["maxSdkVersion"] as Int
+        versionCode = 3
+        versionName = rootProject.extra["sampleVersion"] as String
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildToolsVersion = rootProject.extra["buildTools"] as String
     }
 
     buildFeatures {
-        viewBinding true
-        dataBinding false
-        compose false
+        viewBinding = true
+        dataBinding = false
+        compose = false
     }
 
     buildTypes {
         release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
-        freeCompilerArgs += [
-                '-Xcontext-receivers',
-        ]
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        freeCompilerArgs = listOf(
+            "-Xcontext-receivers",
+        )
     }
 
 }
