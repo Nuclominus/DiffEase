@@ -2,6 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/Nuclominus/DiffEase?tab=Apache-2.0-1-ov-file)
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.nuclominus/diffease.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.nuclominus/diffease)
+[![Detekt scaning](https://github.com/Nuclominus/DiffEase/actions/workflows/pr_code_analyzing.yml/badge.svg)](https://github.com/Nuclominus/DiffEase/actions/workflows/pr_code_analyzing.yml)
 
 A simple implementation of adapter for recycleview that implement DiffUtils and diffCallback by default.
 
@@ -56,6 +57,8 @@ vm.data.observe(viewLifecycleOwner) { data ->
      adapter.update(data, true) // with detecting moves in list
 }
 ```
+
+You can find out about wider use in the [Wiki](https://github.com/Nuclominus/DiffEase/wiki)
 
 ## Future features
 - [ ] Support several selectable adapters in concatadapter
