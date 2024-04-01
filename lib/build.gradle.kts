@@ -49,7 +49,7 @@ val sourceJar by tasks.registering(Jar::class) {
 afterEvaluate {
     val groupId by extra { "io.github.nuclominus" }
     val artifactId by extra { "diffease" }
-    val version by extra { "libVersion" }
+    val version by extra { "1.2.1" }
 
     publishing {
         publications {
