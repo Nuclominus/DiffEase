@@ -1,6 +1,5 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id("io.nuclominus.android.library")
     alias(libs.plugins.detekt.analyzer)
     `maven-publish`
     signing
@@ -8,20 +7,6 @@ plugins {
 
 android {
     namespace = "com.nuclominus.diffease"
-    compileSdk = rootProject.extra["maxSdkVersion"] as Int
-    defaultConfig {
-        minSdk = rootProject.extra["minSdkVersion"] as Int
-        consumerProguardFiles("proguard-rules.pro")
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
 }
 
 dependencies {
@@ -42,8 +27,14 @@ dependencies {
 
 detekt {
     source.setFrom("src/main/kotlin")
-    config.setFrom("../config/detekt/detekt.yaml")
+    // preconfigure defaults
     buildUponDefaultConfig = true
+    // activate all available (even unstable) rules
+    allRules = false
+    // point to your custom config defining rules to run, overwriting default behavior
+    config.setFrom("$rootDir/config/detekt/detekt.yml")
+    // a way of suppressing issues before introducing detekt
+    baseline = file("$projectDir/config/baseline.xml")
 }
 
 project.ext["signing.keyId"] = System.getenv("SIGN_KEY_ID")
@@ -58,7 +49,7 @@ val sourceJar by tasks.registering(Jar::class) {
 afterEvaluate {
     val groupId by extra { "io.github.nuclominus" }
     val artifactId by extra { "diffease" }
-    val version by extra { "1.2.0" }
+    val version by extra { "libVersion" }
 
     publishing {
         publications {

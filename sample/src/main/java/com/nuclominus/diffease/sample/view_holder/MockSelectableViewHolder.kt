@@ -1,4 +1,4 @@
-package com.nuclominus.diffease.sample.viewHolder
+package com.nuclominus.diffease.sample.view_holder
 
 import androidx.core.view.isVisible
 import com.nuclominus.diffease.base.ListObserver

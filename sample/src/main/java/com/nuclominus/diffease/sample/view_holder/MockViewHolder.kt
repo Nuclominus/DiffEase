@@ -1,4 +1,4 @@
-package com.nuclominus.diffease.sample.viewHolder
+package com.nuclominus.diffease.sample.view_holder
 
 import com.nuclominus.diffease.base.BaseViewHolder
 import com.nuclominus.diffease.base.ListObserver

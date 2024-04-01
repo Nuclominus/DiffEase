@@ -1,4 +1,4 @@
-package com.nuclominus.diffease.sample.screen.multiType
+package com.nuclominus.diffease.sample.screen.multi_type
 
 import android.content.Context
 import com.nuclominus.diffease.sample.data.MockModel

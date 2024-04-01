@@ -1,4 +1,4 @@
-package com.nuclominus.diffease.sample.screen.multiType
+package com.nuclominus.diffease.sample.screen.multi_type
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,9 +13,9 @@ import com.nuclominus.diffease.sample.databinding.ItemMockImageBinding
 import com.nuclominus.diffease.sample.databinding.ItemMockSimpleBinding
 import com.nuclominus.diffease.error.UnknownViewTypeException
 import com.nuclominus.diffease.sample.extensions.baseDiffCallback
-import com.nuclominus.diffease.sample.viewHolder.MockActionViewHolder
-import com.nuclominus.diffease.sample.viewHolder.MockImageViewHolder
-import com.nuclominus.diffease.sample.viewHolder.MockViewHolder
+import com.nuclominus.diffease.sample.view_holder.MockActionViewHolder
+import com.nuclominus.diffease.sample.view_holder.MockImageViewHolder
+import com.nuclominus.diffease.sample.view_holder.MockViewHolder
 
 class SampleMultiTypeAdapter(private val callback: ListObserver<MultiMock>? = null) :
     DiffEaseAdapter<MultiMock, BaseViewHolder<MultiMock>>() {

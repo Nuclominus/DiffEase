@@ -1,4 +1,4 @@
-package com.nuclominus.diffease.sample.screen.multiType
+package com.nuclominus.diffease.sample.screen.multi_type
 
 import android.os.Bundle
 import android.view.View
