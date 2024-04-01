@@ -9,7 +9,7 @@ import com.nuclominus.diffease.base.ListObserver
 import com.nuclominus.diffease.sample.data.MultiMock
 import com.nuclominus.diffease.sample.databinding.ItemMockSimpleBinding
 import com.nuclominus.diffease.sample.extensions.baseDiffCallback
-import com.nuclominus.diffease.sample.viewHolder.MockSelectableViewHolder
+import com.nuclominus.diffease.sample.view_holder.MockSelectableViewHolder
 import com.nuclominus.diffease.selectable.SelectableStringListAdapter
 
 class SelectableMockAdapter(

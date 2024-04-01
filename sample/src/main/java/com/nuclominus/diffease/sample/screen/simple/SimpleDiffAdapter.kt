@@ -9,7 +9,7 @@ import com.nuclominus.diffease.base.ListObserver
 import com.nuclominus.diffease.sample.data.MultiMock
 import com.nuclominus.diffease.sample.databinding.ItemMockSimpleBinding
 import com.nuclominus.diffease.sample.extensions.baseDiffCallback
-import com.nuclominus.diffease.sample.viewHolder.MockViewHolder
+import com.nuclominus.diffease.sample.view_holder.MockViewHolder
 
 class SimpleDiffAdapter(private val callback: ListObserver<MultiMock>) :
     DiffEaseAdapter<MultiMock, BaseViewHolder<MultiMock>>() {

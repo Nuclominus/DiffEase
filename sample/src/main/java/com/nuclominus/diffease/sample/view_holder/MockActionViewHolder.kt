@@ -1,13 +1,13 @@
-package com.nuclominus.diffease.sample.viewHolder
+package com.nuclominus.diffease.sample.view_holder
 
 import com.nuclominus.diffease.base.BaseViewHolder
 import com.nuclominus.diffease.base.ListObserver
 import com.nuclominus.diffease.sample.data.MultiMock
-import com.nuclominus.diffease.sample.databinding.ItemMockImageBinding
+import com.nuclominus.diffease.sample.databinding.ItemMockActionBinding
 
-class MockImageViewHolder(
-    private val binding: ItemMockImageBinding,
-    override val callback: ListObserver<MultiMock>? = null
+class MockActionViewHolder(
+    private val binding: ItemMockActionBinding,
+    override val callback: ListObserver<MultiMock>?
 ) : BaseViewHolder<MultiMock>(binding, callback) {
 
     override fun bind(current: MultiMock) {
@@ -19,6 +19,13 @@ class MockImageViewHolder(
             }
             ivAvatar.setImageResource(current.avatar)
             tvName.setText(current.name)
+            tvDate.text = current.date
+            cbLike.apply {
+                isChecked = current.isChecked
+                setOnClickListener {
+                    callback?.onActionClicked(current)
+                }
+            }
         }
     }
 }

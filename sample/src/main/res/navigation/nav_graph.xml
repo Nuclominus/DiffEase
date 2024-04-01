@@ -33,7 +33,7 @@
 
     <fragment
         android:id="@+id/sampleMultiFragment"
-        android:name="com.nuclominus.diffease.sample.screen.multiType.SampleMultiFragment"
+        android:name="com.nuclominus.diffease.sample.screen.multi_type.SampleMultiFragment"
         android:label="@string/multi_cell_type_sample"
         tools:layout="@layout/fragment_sample" />
 
