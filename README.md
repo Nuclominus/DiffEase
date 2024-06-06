@@ -10,6 +10,8 @@ The main idea of the library is to **completely abandon** the old implementation
 
 Also in a library implemented variation of selectable helper for adapter.
 
+You can check out a working example via the link in the [market](https://play.google.com/store/apps/details?id=com.nuclominus.diffease.sample) or build sample code
+
 ## How to start:
 
 Gradle Groovy DSL:
