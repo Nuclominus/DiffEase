@@ -1,12 +1,11 @@
+import data.LibConf
+import data.MavenConf
+
 plugins {
     id("io.nuclominus.android.library")
     alias(libs.plugins.detekt.analyzer)
     `maven-publish`
     signing
-}
-
-android {
-    namespace = "com.nuclominus.diffease"
 }
 
 dependencies {
@@ -41,48 +40,44 @@ project.ext["signing.keyId"] = System.getenv("SIGN_KEY_ID")
 project.ext["signing.secretKeyRingFile"] = System.getenv("SIGN_KEY")
 project.ext["signing.password"] = System.getenv("SIGN_KEY_PASS")
 
-val sourceJar by tasks.registering(Jar::class) {
+val sourcesJar by tasks.registering(Jar::class) {
     from(android.sourceSets["main"].java.srcDirs)
     archiveClassifier.set("sourcesJar")
 }
 
 afterEvaluate {
-    val groupId by extra { "io.github.nuclominus" }
-    val artifactId by extra { "diffease" }
-    val version by extra { "libVersion" }
 
     publishing {
         publications {
             create<MavenPublication>("release") {
                 from(components["release"])
-                artifact(sourceJar)
+                artifact(sourcesJar)
 
-                this.groupId = groupId
-                this.artifactId = artifactId
-                this.version = version
+                this.groupId = MavenConf.GROUP_ID
+                this.artifactId = MavenConf.ARTIFACT_ID
+                this.version = LibConf.LIB_VERSION
 
                 pom {
-                    name.set("DiffEase")
-                    description.set("A simple description and use of an adapter based on DiffUtils")
-                    url.set("https://github.com/Nuclominus/DiffEase")
+                    name.set(MavenConf.ARTIFACT_NAME)
+                    description.set(MavenConf.DESCRIPTION)
+                    url.set(MavenConf.URL)
 
                     licenses {
                         license {
-                            name.set("The Apache License, Version 2.0")
-                            url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                            name.set(MavenConf.LICENSE_NAME)
                         }
                     }
 
                     developers {
                         developer {
-                            id.set("nuclominus")
-                            name.set("Roman Kosko")
-                            email.set("9DGRoman@gmail.com")
+                            id.set(MavenConf.DEVELOPER_ID)
+                            name.set(MavenConf.DEVELOPER_NAME)
+                            email.set(MavenConf.DEVELOPER_EMAIL)
                         }
                     }
 
                     scm {
-                        url.set("https://github.com/Nuclominus/DiffEase")
+                        url.set(MavenConf.SCM_URL)
                     }
                 }
             }
@@ -90,11 +85,11 @@ afterEvaluate {
 
         repositories {
             maven {
-                name = "sonatypeStaging"
-                url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+                name = MavenConf.MAVEN_NAME
+                url = uri(MavenConf.MAVEN_URL)
                 credentials {
-                    username = System.getenv("OSS_USERNAME")
-                    password = System.getenv("OSS_PASSWORD")
+                    username = System.getenv(MavenConf.OSS_USERNAME)
+                    password = System.getenv(MavenConf.OSS_PASSWORD)
                 }
             }
         }

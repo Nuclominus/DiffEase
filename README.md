@@ -2,12 +2,15 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/Nuclominus/DiffEase?tab=Apache-2.0-1-ov-file)
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.nuclominus/diffease.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.nuclominus/diffease)
+[![Detekt scaning](https://github.com/Nuclominus/DiffEase/actions/workflows/pr_code_analyzing.yml/badge.svg)](https://github.com/Nuclominus/DiffEase/actions/workflows/pr_code_analyzing.yml)
 
 A simple implementation of adapter for recycleview that implement DiffUtils and diffCallback by default.
 
 The main idea of the library is to **completely abandon** the old implementation of updating the list via `notifyDataChanged()` and simplify the process of creating a generic and multi-type list with multiple view types.
 
 Also in a library implemented variation of selectable helper for adapter.
+
+You can check out a working example via the link in the [market](https://play.google.com/store/apps/details?id=com.nuclominus.diffease.sample) or build sample code
 
 ## How to start:
 
@@ -68,4 +71,3 @@ If you use proguard, you need to add the following rules:
     private java.util.ArrayList mOnItemTouchListeners;
 }
 ```
-
