@@ -40,7 +40,7 @@ project.ext["signing.keyId"] = System.getenv("SIGN_KEY_ID")
 project.ext["signing.secretKeyRingFile"] = System.getenv("SIGN_KEY")
 project.ext["signing.password"] = System.getenv("SIGN_KEY_PASS")
 
-val sourcesJar by tasks.registering(Jar::class) {
+val sourceJar by tasks.registering(Jar::class) {
     from(android.sourceSets["main"].java.srcDirs)
     archiveClassifier.set("sourcesJar")
 }
@@ -51,7 +51,7 @@ afterEvaluate {
         publications {
             create<MavenPublication>("release") {
                 from(components["release"])
-                artifact(sourcesJar)
+                artifact(sourceJar)
 
                 this.groupId = MavenConf.GROUP_ID
                 this.artifactId = MavenConf.ARTIFACT_ID
