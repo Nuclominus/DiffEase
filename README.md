@@ -57,5 +57,15 @@ vm.data.observe(viewLifecycleOwner) { data ->
 }
 ```
 
-## Future features
-- [ ] Support several selectable adapters in concatadapter
+You can find out about wider use in the [Wiki](https://github.com/Nuclominus/DiffEase/wiki)
+
+## Proguard
+
+If you use proguard, you need to add the following rules:
+
+```proguard
+-keepclassmembers class androidx.recyclerview.widget.RecyclerView {
+    private java.util.ArrayList mOnItemTouchListeners;
+}
+```
+
