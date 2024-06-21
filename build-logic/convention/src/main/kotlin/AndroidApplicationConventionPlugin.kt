@@ -2,10 +2,10 @@
 
 import com.android.build.api.dsl.ApplicationExtension
 import core.Flavors
+import core.configureAndroidApplication
 import core.configureDevFlavor
 import core.configureFlavors
-import core.configureGlobalsAndroid
-import core.configureKotlinAndroid
+import core.configureKotlin
 import core.configureProdFlavor
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -25,21 +25,8 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             }
 
             extensions.configure<ApplicationExtension> {
-                configureKotlinAndroid(this)
-
-                defaultConfig.apply {
-                    targetSdk = 34
-                    multiDexEnabled = true
-
-                    buildFeatures {
-                        aidl = false
-                        buildConfig = false
-                        compose = false
-                        dataBinding = false
-                        viewBinding = true
-                        prefab = false
-                    }
-                }
+                configureKotlin()
+                configureAndroidApplication()
 
                 configureFlavors(this) { flavor ->
                     when (flavor.name) {
