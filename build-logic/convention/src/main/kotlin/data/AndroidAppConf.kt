@@ -3,8 +3,8 @@ package data
 import org.gradle.api.JavaVersion
 
 object AndroidAppConf {
-    const val APP_VERSION: String = "1.0.2"
-    const val VERSION_CODE: Int = 8
+    const val APP_VERSION: String = "1.0.3"
+    const val VERSION_CODE: Int = 9
     const val NAMESPACE: String = "com.nuclominus.diffease.sample"
     const val COMPILE_SDK: Int = 36
     const val MIN_SDK: Int = 26
@@ -19,7 +19,6 @@ object LibConf {
 object MavenConf {
     const val GROUP_ID: String = "io.github.nuclominus"
     const val ARTIFACT_ID: String = "diffease"
-    const val LIB_VERSION: String = LibConf.LIB_VERSION
     const val ARTIFACT_NAME: String = "DiffEase"
     const val DESCRIPTION: String = "A simple description and use of an adapter based on DiffUtils"
     const val URL: String = "https://github.com/Nuclominus/DiffEase"

@@ -7,6 +7,7 @@ import core.configureDevFlavor
 import core.configureFlavors
 import core.configureKotlinAndroid
 import core.configureProdFlavor
+import data.AndroidAppConf
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
