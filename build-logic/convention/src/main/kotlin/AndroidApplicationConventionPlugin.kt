@@ -29,7 +29,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 configureKotlinAndroid(this)
 
                 defaultConfig.apply {
-                    versionCode = 2
+                    versionCode = AndroidAppConf.VERSION_CODE
                     versionName = "1.0.2"
 
                     multiDexEnabled = true
