@@ -4,7 +4,6 @@ package core
 
 import com.android.build.api.dsl.CommonExtension
 import data.AndroidAppConf
-import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.provideDelegate
@@ -19,9 +18,8 @@ internal fun Project.configureKotlinAndroid(
 ) {
     commonExtension.apply {
         compileOptions {
-            // Configure CI to use Java 19
-            sourceCompatibility = JavaVersion.VERSION_19
-            targetCompatibility = JavaVersion.VERSION_19
+            sourceCompatibility = AndroidAppConf.javaVersion
+            targetCompatibility = AndroidAppConf.javaVersion
         }
 
         extensions.configure<KotlinAndroidProjectExtension> {
@@ -37,7 +35,7 @@ internal fun Project.configureKotlinAndroid(
                     "-Xcontext-receivers",
                 )
 
-                jvmTarget.set(JvmTarget.fromTarget(JavaVersion.VERSION_19.toString()))
+                jvmTarget.set(JvmTarget.fromTarget(AndroidAppConf.javaVersion.toString()))
             }
         }
 
