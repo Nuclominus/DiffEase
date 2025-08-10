@@ -1,5 +1,5 @@
 plugins {
-    id("io.nuclominus.android.application")
+    alias(libs.plugins.nuclominus.application)
     alias(libs.plugins.detekt.analyzer)
 }
 

@@ -48,6 +48,7 @@ internal fun Project.configureDefaults() =
 
         defaultConfig.apply {
             minSdk = AndroidAppConf.MIN_SDK
+            vectorDrawables.useSupportLibrary = true
 
             buildFeatures {
                 // Disable unused features to reduce build time.
