@@ -2,7 +2,7 @@ import data.LibConf
 import data.MavenConf
 
 plugins {
-    id("io.nuclominus.android.library")
+    alias(libs.plugins.nuclominus.library)
     alias(libs.plugins.detekt.analyzer)
     `maven-publish`
     signing

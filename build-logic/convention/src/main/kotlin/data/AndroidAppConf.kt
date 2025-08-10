@@ -6,8 +6,8 @@ object AndroidAppConf {
     const val APP_VERSION: String = "1.0.2"
     const val VERSION_CODE: Int = 8
     const val NAMESPACE: String = "com.nuclominus.diffease.sample"
-    const val COMPILE_SDK: Int = 34
-    const val MIN_SDK: Int = 21
+    const val COMPILE_SDK: Int = 36
+    const val MIN_SDK: Int = 26
     val javaVersion: JavaVersion = JavaVersion.VERSION_19
 }
 
