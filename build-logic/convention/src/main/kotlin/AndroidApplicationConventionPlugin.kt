@@ -30,7 +30,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 
                 defaultConfig.apply {
                     versionCode = AndroidAppConf.VERSION_CODE
-                    versionName = "1.0.2"
+                    versionName = AndroidAppConf.APP_VERSION
 
                     multiDexEnabled = true
                     buildFeatures {
