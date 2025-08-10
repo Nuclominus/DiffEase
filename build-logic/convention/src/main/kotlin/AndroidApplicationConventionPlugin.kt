@@ -26,7 +26,6 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 
             extensions.configure<ApplicationExtension> {
                 configureAndroidApplication()
-//                configureGlobalsAndroid(this)
                 configureKotlinAndroid(this)
 
                 defaultConfig.apply {
